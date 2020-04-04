@@ -1,0 +1,17 @@
+class Solution:
+    def isHappy(self, n: int) -> bool:
+        new_int = 0
+        s = set()
+        while new_int != 1:
+            if n in s:
+                return False
+            s.add(n)
+            new_int = 0
+            int_list = list(str(n))
+            for i in range(0,len(int_list)):
+                new_int += (int(int_list[i])**2)
+            n = new_int
+        if new_int == 1:
+            return new_int
+        else:
+            return False
